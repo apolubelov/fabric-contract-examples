@@ -1,0 +1,5 @@
+/*
+ */
+rootProject.name = 'fabric-contract-examples'
+include('chaincode/contract-example')
+
