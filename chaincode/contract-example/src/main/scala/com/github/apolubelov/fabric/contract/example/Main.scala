@@ -6,7 +6,7 @@ import com.github.apolubelov.fabric.contract.annotations.{ContractInit, Contract
 /*
  * This is just a version of
  * https://github.com/hyperledger/fabric-samples/blob/release-1.3/chaincode/chaincode_example02/java/src/main/java/org/hyperledger/fabric/example/SimpleChaincode.java
- * Hyperledger Fabric example, ported to Scala with use of contract-base library.
+ * Hyperledger Fabric example, ported to Scala with use of fabric-contract-base library.
  *
  * @author Alexey Polubelov
  */
