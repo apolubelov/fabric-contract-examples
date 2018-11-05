@@ -26,9 +26,6 @@ repositories {
     maven {
         url 'https://nexus.hyperledger.org/content/repositories/releases'
     }
-    maven {
-        url 'https://dl.bintray.com/apolubelov/hyperledger-fabric-extensions'
-    }
     mavenCentral()
     jcenter()
 }
