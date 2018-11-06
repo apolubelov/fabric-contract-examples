@@ -13,7 +13,7 @@ compileScala.targetCompatibility = 1.8
 dependencies {
     compile 'org.scala-lang:scala-library:2.12.0'
     compile 'org.hyperledger.fabric-chaincode-java:fabric-chaincode-shim:1.3.0'
-    compile 'com.github.apolubelov.fabric-contract-base:fabric-contract-base:1.0.0-pre-alpha-1'
+    compile 'com.github.apolubelov.fabric-contract-base:fabric-contract-base:1.0.0-pre-alpha-2'
 
     // testing libraries
     testCompile 'junit:junit:4.12'
@@ -23,9 +23,8 @@ dependencies {
 
 repositories {
     mavenLocal()
-    maven {
-        url 'https://nexus.hyperledger.org/content/repositories/releases'
-    }
+    maven { url 'https://nexus.hyperledger.org/content/repositories/releases' }
+    maven { url 'https://dl.bintray.com/apolubelov/hyperledger-fabric-extensions' }
     mavenCentral()
     jcenter()
 }
