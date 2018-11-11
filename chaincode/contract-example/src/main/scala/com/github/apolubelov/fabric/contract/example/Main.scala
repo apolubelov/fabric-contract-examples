@@ -2,6 +2,8 @@ package com.github.apolubelov.fabric.contract.example
 
 import com.github.apolubelov.fabric.contract._
 import com.github.apolubelov.fabric.contract.annotations.{ContractInit, ContractOperation}
+import org.hyperledger.fabric.shim.ChaincodeBase
+import org.slf4j.{Logger, LoggerFactory}
 
 /*
  * This is just a version of
@@ -11,8 +13,21 @@ import com.github.apolubelov.fabric.contract.annotations.{ContractInit, Contract
  * @author Alexey Polubelov
  */
 object Main extends ContractBase with App {
+
     // start SHIM chain code
     start(args)
+
+    // setup logging levels
+    LoggerFactory
+      .getLogger(Logger.ROOT_LOGGER_NAME)
+      .asInstanceOf[ch.qos.logback.classic.Logger]
+      .setLevel(ch.qos.logback.classic.Level.INFO)
+
+    LoggerFactory
+      .getLogger(classOf[ContractBase].getPackage.getName)
+      .asInstanceOf[ch.qos.logback.classic.Logger]
+      .setLevel(ch.qos.logback.classic.Level.TRACE)
+
 
     @ContractInit
     def init(context: ContractContext, ac1: String, ac1Value: Int, ac2: String, ac2Value: Int): Unit = {
