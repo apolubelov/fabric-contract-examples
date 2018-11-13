@@ -42,7 +42,7 @@ object Main extends ContractBase with App {
     @ContractOperation
     def invoke(context: ContractContext, from: String, to: String, x: Int): ContractResponse =
         context.store.get[Int](from).map { source =>
-            context.store.get[Int](from).map { dest =>
+            context.store.get[Int](to).map { dest =>
                 context.store.put(from, source - x)
                 context.store.put(to, dest + x)
                 Success()
