@@ -1,11 +1,10 @@
 package com.github.apolubelov.fabric.contract.example
 
 import com.github.apolubelov.fabric.contract._
-import com.github.apolubelov.fabric.contract.annotations.{ContractInit, ContractOperation}
-import org.hyperledger.fabric.shim.ChaincodeBase
+import com.github.apolubelov.fabric.contract.annotation.{ContractInit, ContractOperation}
 import org.slf4j.{Logger, LoggerFactory}
 
-/*
+/**
  * This is just a version of
  * https://github.com/hyperledger/fabric-samples/blob/release-1.3/chaincode/chaincode_example02/java/src/main/java/org/hyperledger/fabric/example/SimpleChaincode.java
  * Hyperledger Fabric example, ported to Scala with use of fabric-contract-base library.
@@ -71,8 +70,6 @@ object Main extends ContractBase with App {
         value: Double
     )
 
-    override def resolveClassByName(name: String): Option[Class[_]] = Some(classOf[DummyAsset])
-
     @ContractOperation
     def putAsset(context: ContractContext, address: String, asset: DummyAsset): ContractResponse = {
         context.store.put(address, asset)
@@ -88,7 +85,7 @@ object Main extends ContractBase with App {
     @ContractOperation
     def listAssets(context: ContractContext): ContractResponse = {
         val assets: Array[DummyAsset] = context.store.list[DummyAsset]
-          .map(_._2) // take only values
+          .map(_.value) // take only values
           .toArray // use Array, as GSON knows nothing about scala collections
         Success(assets)
     }
